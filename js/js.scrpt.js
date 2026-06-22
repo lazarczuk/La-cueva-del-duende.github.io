@@ -4,16 +4,24 @@ let carrito = JSON.parse(localStorage.getItem("fantasy_carrito") || "[]");
 total = carrito.reduce((s, it) => s + it.precio, 0);
 document.addEventListener("DOMContentLoaded", () => { actualizarUI(); });
 
-function agregar(nombre, precio) {
-  carrito.push({ nombre, precio });
-  total += precio;
-  localStorage.setItem("fantasy_carrito", JSON.stringify(carrito));
+function vaciarCarrito() {
+  carrito = [];
+  total = 0;
+  localStorage.removeItem("fantasy_carrito"); // borra todo el carrito guardado
   actualizarUI();
 }
-function vaciarCarrito() {
-  carrito = []; total = 0;
-  localStorage.setItem("fantasy_carrito", JSON.stringify(carrito));
+
+function comprarCarrito() {
+  if (carrito.length === 0) {
+    alert("Tu bolsa está vacía.");
+    return;
+  }
+  alert("¡Has comprado tus objetos por " + total + " monedas!");
+  carrito = [];
+  total = 0;
+  localStorage.removeItem("fantasy_carrito"); // limpia después de comprar
   actualizarUI();
+}
 }
 function actualizarUI() {
   const lista = document.getElementById("lista");

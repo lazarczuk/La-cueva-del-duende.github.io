@@ -4,6 +4,12 @@ let carrito = JSON.parse(localStorage.getItem("fantasy_carrito") || "[]");
 total = carrito.reduce((s, it) => s + it.precio, 0);
 document.addEventListener("DOMContentLoaded", () => { actualizarUI(); });
 
+function agregar(nombre, precio) {
+  carrito.push({ nombre, precio });
+  total += precio;
+  localStorage.setItem("fantasy_carrito", JSON.stringify(carrito));
+  actualizarUI();
+}
 function vaciarCarrito() {
   carrito = [];
   total = 0;
@@ -21,7 +27,6 @@ function comprarCarrito() {
   total = 0;
   localStorage.removeItem("fantasy_carrito"); // limpia después de comprar
   actualizarUI();
-}
 }
 function actualizarUI() {
   const lista = document.getElementById("lista");

@@ -12,6 +12,12 @@ header{
  /*no borre por debajo de text-shadow */
   font-family: 'MedievalSharp', cursive;
   color:#ffd86b;
+    flex: 1;                /* ocupa todo el espacio disponible */
+  text-align: center;     /* centra el texto */
+  font-family: 'MedievalSharp', cursive;
+  color: #ffd86b;
+  text-shadow: 2px 2px 6px #000;
+  margin: 0;
   text-shadow:2px 2px 6px #000;
   padding:18px 20px;
  background: linear-gradient(90deg, #2b1b10, #3c2615);
@@ -75,11 +81,10 @@ color:#2b1b10;
 main{display:flex;gap:20px;padding:20px}
 .productos {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 24px;          /* más espacio entre ítems */
-  padding: 20px;      /* margen interno para que no peguen al borde */
-  justify-items: center; /* centra cada card dentro de su celda */
-  align-items: start;    /* alinea arriba para que no queden desparejos */
+  grid-template-columns: repeat(2, 1fr); /* siempre 2 columnas */
+  gap: 24px; /* espacio entre ítems */
+  padding: 20px;
+  justify-items: center;
 }
 .item{
   display:flex;

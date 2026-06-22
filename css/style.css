@@ -124,3 +124,25 @@ main{display:flex;gap:20px;padding:20px}
   border:3px solid #d4af37;
   border-radius:6px;
 }
+.acciones {
+  display: flex;
+  justify-content: space-between; /* separa los botones */
+  gap: 12px;                      /* espacio entre ellos */
+  margin-top: 12px;
+}
+
+.acciones button {
+  flex: 1;                        /* ambos ocupan mismo ancho */
+  padding: 10px;
+  background: #d4af37;
+  color: #2b1b10;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.acciones button:hover {
+  background: #ffd86b;
+  box-shadow: 0 0 8px #d4af37;
+}
